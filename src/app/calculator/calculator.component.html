@@ -1,0 +1,62 @@
+<div class="calculator-container">
+  <div class="topbar">
+    <div class="icon"><img src="assets/logo.png"></div>
+  </div>
+
+  <div class="content">
+    <div class="headers">
+      <h2>Your Mortgage</h2>
+      <h1>Calculate Your Mortgage</h1>
+    </div>
+    <div class="form">
+      <form [formGroup]="calculatorForm">
+        <div class="input-wrapper">
+          <label for="borrowingAmount"><i class="icon-help"></i> Borrowing Amount</label>
+          <span class="currency-symbol">€</span>
+          <input id="borrowingAmount" formControlName="borrowingAmount" type="text" />
+          <div *ngIf="calculatorForm.controls['borrowingAmount'].invalid && calculatorForm.controls['borrowingAmount'].touched">
+            Borrowing Amount is required and should be a positive number.
+          </div>
+        </div>
+    
+        <div class="input-wrapper">
+          <label for="purchasePrice"><i class="icon-help"></i> Purchase Price</label>
+          <span class="currency-symbol">€</span>
+          <input id="purchasePrice" formControlName="purchasePrice" type="text" />
+          <div *ngIf="calculatorForm.controls['purchasePrice'].invalid && calculatorForm.controls['purchasePrice'].touched">
+            Purchase Price is required and should be a positive number.
+          </div>
+        </div>
+    
+        <div class="input-wrapper">
+          <label for="grossIncome"><i class="icon-help"></i> Gross Household Income</label>
+          <span class="currency-symbol">€</span>
+          <input id="grossIncome" formControlName="grossIncome" type="text" />
+          <div *ngIf="calculatorForm.controls['grossIncome'].invalid && calculatorForm.controls['grossIncome'].touched">
+            Gross Income is required and should be a positive number.
+          </div>
+        </div>
+    
+        <div class="input-wrapper">
+          <label for="interestRate"><i class="icon-help"></i> Interest Rate</label>
+          <input id="interestRate" formControlName="interestRate" type="text" />
+          <span class="percentage-symbol">%</span>
+          <div *ngIf="calculatorForm.controls['interestRate'].invalid && calculatorForm.controls['interestRate'].touched">
+            Interest Rate is required and should be a valid percentage.
+          </div>
+        </div>
+    
+        <div class="dropdown-wrapper">
+          <label for="repaymentPeriod"><i class="icon-help"></i> Preferred Repayment Period</label>
+          <select id="repaymentPeriod" formControlName="repaymentPeriod">
+            <option value="">Select a period</option>
+            <option *ngFor="let period of [15, 20, 25, 30, 35]" [value]="period">{{ period }} years</option>
+          </select>
+          <div *ngIf="calculatorForm.controls['repaymentPeriod'].invalid && calculatorForm.controls['repaymentPeriod'].touched">
+            Repayment Period is required.
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

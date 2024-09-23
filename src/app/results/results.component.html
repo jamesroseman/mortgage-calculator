@@ -1,0 +1,34 @@
+<div class="results-container">
+  <div class="topbar">
+    <i class="icon-calculator">
+      <img src="assets/calculator.png" />
+    </i>
+    <h2>Your Mortgage Calculation</h2>
+  </div>
+  
+
+  <div class="monthly-payment">
+    <span class="currency-symbol">€</span>
+    <span>{{ monthlyPayment?.toFixed(2) }}</span>
+    <span class="per-month">Per Month</span>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <h3>{{ debtToIncome?.toFixed(1) }}x</h3>
+      <p>Debt To Income</p>
+    </div>
+    <div class="metric">
+      <h3>{{ loanToValue?.toFixed(1) }}%</h3>
+      <p>Loan To Value</p>
+    </div>
+    <div class="metric">
+      <h3>{{ repaymentPeriod }}</h3>
+      <p>Term (Years)</p>
+    </div>
+  </div>
+
+  <div class="description">
+    Here’s our estimate of your monthly mortgage repayments. In general, the maximum amount you can borrow is 4.5x your joint income, and you need to have at least 10% of the value of the property saved as a deposit for lenders to accept your application.
+  </div>
+</div>
